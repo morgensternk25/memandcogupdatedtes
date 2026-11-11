@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory and Encoding Strategies</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">Psychology experiment</p>
+      <h1>Memory and Encoding Strategies</h1>
+      <p class="subhead">A short study of how different ways of learning information affect later recall.</p>
+    </header>
+
+    <section id="welcome" class="panel">
+      <h2>Welcome</h2>
+      <p>You will study 18 words in three blocks. Each block uses a different strategy. After a short counting task, you will be asked to recall as many words as you can.</p>
+      <p><strong>Important:</strong> Complete the experiment without writing down or recording the words. You may stop at any time.</p>
+      <button id="startBtn" class="primary">Begin experiment</button>
+    </section>
+
+    <section id="instructions" class="panel hidden" aria-live="polite">
+      <p class="progress" id="blockProgress"></p>
+      <h2 id="instructionTitle"></h2>
+      <p id="instructionText"></p>
+      <button id="beginBlockBtn" class="primary">Begin this block</button>
+    </section>
+
+    <section id="study" class="panel hidden" aria-live="polite">
+      <p class="progress" id="studyProgress"></p>
+      <div class="word-stage">
+        <p class="small-label">Remember this word</p>
+        <div id="studyWord" class="study-word"></div>
+      </div>
+      <p class="muted">The next word will appear automatically.</p>
+    </section>
+
+    <section id="distractor" class="panel hidden">
+      <p class="progress">Final task before recall</p>
+      <h2>Count backward by 3</h2>
+      <p>Starting with the number below, keep subtracting 3. Type each next number and press Enter. Continue until the timer reaches zero.</p>
+      <div id="startingNumber" class="starting-number"></div>
+      <div class="timer" id="timer">30</div>
+      <label for="countInput">Your next number</label>
+      <div class="inline-form">
+        <input id="countInput" type="number" inputmode="numeric" autocomplete="off">
+        <button id="submitCountBtn" class="primary">Submit</button>
+      </div>
+      <p id="countFeedback" class="muted" aria-live="polite">Enter the next number in the sequence.</p>
+      <p class="muted">You can continue entering numbers until time is up.</p>
+    </section>
+
+    <section id="recall" class="panel hidden">
+      <p class="progress">Final task</p>
+      <h2>Free recall</h2>
+      <p>Type as many of the words you studied as you can remember. Enter words in any order, separated by commas, spaces, or new lines. Do not worry about capitalization or minor spelling mistakes.</p>
+      <label for="recallInput">Words you remember</label>
+      <textarea id="recallInput" rows="7" placeholder="Enter the words you remember here..."></textarea>
+      <button id="submitRecallBtn" class="primary">Submit answers</button>
+    </section>
+
+    <section id="results" class="panel hidden">
+      <p class="progress">Experiment complete</p>
+      <h2>Your results</h2>
+      <p id="resultIntro"></p>
+      <div id="scoreResults" class="score-grid"></div>
+      <p class="notice">Your scores are based on the words matched to each encoding strategy. Results are stored only in this browser session until you download the files.</p>
+      <div class="download-row">
+        <button id="summaryDownloadBtn" class="primary">Download summary CSV</button>
+        <button id="trialDownloadBtn" class="secondary">Download trial-level CSV</button>
+      </div>
+      <button id="restartBtn" class="text-button">Run another session</button>
+    </section>
+
+    <footer><span>Memory and Encoding Strategies</span><span>All data remain in your browser.</span></footer>
+  </main>
+</body>
+</html>
